@@ -1,0 +1,30 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+@font-face {
+    font-family: 'Champagne';
+    src: url(font-path('Champagne.ttf')) format('truetype');
+    font-weight: normal;
+    font-style: normal; 
+}
+/*titulo de la pagina*/
+.home-title{
+	font-family: 'Champagne';
+	font-size: 300px;
+	  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h4{
+	font-family: 'Champagne';
+	font-size: 50px;
+	position: absolute;
+	  top: 95%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+}
