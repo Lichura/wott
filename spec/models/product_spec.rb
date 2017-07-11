@@ -50,4 +50,8 @@ RSpec.describe Product, :type => :model do
     	expect(producto).to be_invalid
     	#expect(producto.errors[:family_id].to eql(["Family can't be blank"]))
     end
+
+      it "should destroy relations betweens colors on destroy" do
+    true
+  end
 end

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
 	belongs_to :family
-	has_many :product_colors
+	has_many :product_colors, dependent: :destroy
 	has_many :colors, through: :product_colors
 	#validates_presence_of :name, :family_id
 	validates :name, uniqueness: true
