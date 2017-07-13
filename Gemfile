@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'devise'
-gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '>= 1.0.0.rc'
+gem 'rails_admin', '~> 1.2'
+gem 'cancancan'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
