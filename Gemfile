@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem "font-awesome-rails"
+
 gem 'devise'
 gem 'rails_admin', '~> 1.2'
 gem 'cancancan'

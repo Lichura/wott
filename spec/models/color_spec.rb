@@ -34,13 +34,5 @@ RSpec.describe Color, type: :model do
   	expect(@color.products.length).to be == 3
   end
 
-  it "should destroy relations betweens products on destroy" do
-  	color = Product.create(name: "producto1", family_id: 1)
-  	color1 = Product.create(name: "producto2", family_id: 1)
-  	color2 = Product.create(name: "producto3", family_id: 1)
-  	productos=[color, color1, color2]
-  	for producto in productos
-		@color.products << producto
-	end
-	end
+
 end
