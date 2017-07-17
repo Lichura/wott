@@ -10,21 +10,44 @@
     font-weight: normal;
     font-style: normal; 
 }
+
+
 /*titulo de la pagina*/
-.home-title{
-	font-family: 'Champagne';
-	font-size: 50px;
-	  position: absolute;
+
+.homepage-central-title{
+      position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+
+.home-title{
+	font-family: 'Champagne';
+	font-size: 150px;
+
+}
+
 h4{
 	font-family: 'Champagne';
 	font-size: 50px;
-	position: absolute;
-	  top: 95%;
-  left: 72%;
-  transform: translate(-50%, -50%);
+	margin-top: -10%;
+  margin-left: 70%;
+
+}
+
+
+/* secciones de la pagina */
+#seccion-principal{
+  height: 100vh;
+
+}
+
+#seccion-uno{
+  height: 100vh;
+  background-color: black;
+}
+
+.container{
+  height: 100%;
 }

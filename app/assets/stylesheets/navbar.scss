@@ -1,11 +1,12 @@
 .navbar{
 	background-color: rgb(255,255,255);
-	width: 100%;
-	padding: 0 0 0 0;
-	margin: 1% 0 0 0;
-	position: fixed;
+	font-family: 'Champagne';
 
 	.navbar-link{
 	color: black;
+	}
+
+	.fa{
+		font-size: 150%;
 	}
 }
