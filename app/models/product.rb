@@ -12,7 +12,7 @@ class Product < ApplicationRecord
 	validates :family_id, :presence => true
 	after_initialize :set_initials
 
-	self.per_page = 10
+	self.per_page = 2
 
 	def set_initials
 		self.price ||= 0
