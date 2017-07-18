@@ -3,12 +3,16 @@ class Product < ApplicationRecord
 	belongs_to :family
 	has_many :product_colors, dependent: :destroy
 	has_many :colors, through: :product_colors
+	has_many :product_providers
+	has_many :providers, through: :product_providers
+	has_many :user_products
+    has_many :users, through: :user_products
 	#validates_presence_of :name, :family_id
 	validates :name, uniqueness: true
 	validates :family_id, :presence => true
 	after_initialize :set_initials
 
-
+	self.per_page = 10
 
 	def set_initials
 		self.price ||= 0
