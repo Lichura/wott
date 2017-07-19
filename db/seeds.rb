@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+familia = Family.create(name:"familia1")
+50.times { |i| Product.create(name: "Post #{i}", family_id: 1) }
