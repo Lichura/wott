@@ -1,6 +1,24 @@
-<div class="product-container d-flex justify-content-around">
+<div class="product-container">
 
-  <small><em><%= product.name %></em></small>
+  <h3><%= product.name %></h3>
+<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jpg"/>
 
 
+<div class="product-interact">
+<i class="product-like fa fa-heart-o" aria-hidden="true"></i>
+<i class="producto-cart fa fa-cart-plus" aria-hidden="true"></i>
+<span class="product-price">$ <%= product.price %></span>
 </div>
+</div>
+
+<script>
+$(document).ready(function(){
+	$(".product-like").click(function(){
+		if($(this).is(".fa fa-heart-o")){
+			$(this).removeClass("fa-heart-o").addClass("fa-heart");
+		}else{
+			$(this).removeClass("fa-heart").addClass("fa-heart-o");
+		}
+	});
+});
+</script>

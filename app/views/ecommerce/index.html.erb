@@ -2,9 +2,10 @@
   <h1><%= t'Pillows' %></h1>
 </div>
 
-<div id="my-products">
-  <%= render @products %>
-</div>
+	<div id="my-products">
+  		<%= render @products %>
+	</div>
+
 
 <div id="infinite-scrolling">
   <%= will_paginate @products %>

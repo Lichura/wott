@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170719090640) do
     t.integer  "packaging_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "providers_ids"
     t.string   "image"
   end
 
