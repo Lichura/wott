@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :home
   resources :ecommerce
 
+  resources :user_products
   resources :products do
       resources :user_products
   end

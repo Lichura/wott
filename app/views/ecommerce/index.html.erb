@@ -26,6 +26,7 @@ function set_heart_color(elem){
 	
 	if($(elem).is('.fa-heart-o')){
 		$(elem).removeClass('fa-heart-o').addClass('fa-heart');
+		console.log($(elem).parent().parent().parent().find('.producto-id').val());
 		save_association_product_user();
 	}else{
 		$(elem).removeClass('fa-heart').addClass('fa-heart-o');
@@ -39,7 +40,7 @@ function set_heart_color(elem){
         url:'/ecommerce/product_like',
         type:'POST',
         data:{
-            myparam1: "1",
+            myparam1: ".producto-id",
             myparam2: "48",
         },
         success:function(data){

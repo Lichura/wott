@@ -1,6 +1,6 @@
 <div class="product-container">
   <h3><%= product.name %></h3>
-<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jp"/>
+<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jpg"/>
 
 
 <div class="product-interact">
@@ -14,7 +14,12 @@
 </div>
 <span hidden="true" class="producto-id"><%= product.id %></span>
 
-
+              <%= form_for @like, remote: true  do |f| %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :product_id, value: product.id %>
+                  <%= f.check_box :_destroy %>
+                  <%= f.submit %>
+             <% end %>
 
 </div>
 
