@@ -12,6 +12,8 @@ class Product < ApplicationRecord
 	validates :family_id, :presence => true
 	after_initialize :set_initials
 
+	accepts_nested_attributes_for :user_products, allow_destroy: true
+
 	self.per_page = 9
 
 	def set_initials

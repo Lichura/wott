@@ -5,7 +5,14 @@ Rails.application.routes.draw do
 
   resources :home
   resources :ecommerce
+
+  resources :products do
+      resources :user_products
+  end
   root :to => "home#index"
+
+  post "ecommerce/product_like"
+  post "ecommerce/destroy_product_like"
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',

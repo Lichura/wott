@@ -10,3 +10,62 @@
 <div id="infinite-scrolling">
   <%= will_paginate @products %>
 </div>
+
+<script>
+$(document).ready(function(){
+	$(".product-like").click(function(){
+		set_heart_color(this);
+	});
+
+
+
+});
+
+
+function set_heart_color(elem){
+	
+	if($(elem).is('.fa-heart-o')){
+		$(elem).removeClass('fa-heart-o').addClass('fa-heart');
+		save_association_product_user();
+	}else{
+		$(elem).removeClass('fa-heart').addClass('fa-heart-o');
+		destroy_association_product_user();
+	}
+}
+
+
+	function save_association_product_user(){
+	 $.ajax({
+        url:'/ecommerce/product_like',
+        type:'POST',
+        data:{
+            myparam1: "1",
+            myparam2: "48",
+        },
+        success:function(data){
+            console.log("success");
+        },
+        error:function(data){
+            debugger;
+        }
+    });
+	}
+
+
+	function destroy_association_product_user(){
+	 $.ajax({
+        url:'/ecommerce/destroy_product_like',
+        type:'POST',
+        data:{
+            myparam1: "1",
+            myparam2: "48",
+        },
+        success:function(data){
+            console.log("success");
+        },
+        error:function(data){
+            debugger;
+        }
+    });
+	}
+</script>
