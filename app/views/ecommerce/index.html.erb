@@ -23,25 +23,27 @@ $(document).ready(function(){
 
 
 function set_heart_color(elem){
-	
+	var producto = $(elem).parent().parent().find('.producto-id').text();
+    console.log(producto);
+    console.log(<%= current_user.id %>);
 	if($(elem).is('.fa-heart-o')){
 		$(elem).removeClass('fa-heart-o').addClass('fa-heart');
-		console.log($(elem).parent().parent().parent().find('.producto-id').val());
-		save_association_product_user();
+		
+		save_association_product_user(producto);
 	}else{
 		$(elem).removeClass('fa-heart').addClass('fa-heart-o');
-		destroy_association_product_user();
+		destroy_association_product_user(producto);
 	}
 }
 
 
-	function save_association_product_user(){
+	function save_association_product_user(producto){
 	 $.ajax({
         url:'/ecommerce/product_like',
         type:'POST',
         data:{
-            myparam1: ".producto-id",
-            myparam2: "48",
+            myparam1: <%= current_user.id %>,
+            myparam2: producto,
         },
         success:function(data){
             console.log("success");
@@ -53,13 +55,13 @@ function set_heart_color(elem){
 	}
 
 
-	function destroy_association_product_user(){
+	function destroy_association_product_user(producto){
 	 $.ajax({
         url:'/ecommerce/destroy_product_like',
         type:'POST',
         data:{
-            myparam1: "1",
-            myparam2: "48",
+            myparam1: <%= current_user.id %>,
+            myparam2: producto,
         },
         success:function(data){
             console.log("success");

@@ -21,8 +21,8 @@ before_action :set_like, only: [:show, :edit, :update, :destroy]
 	end
 
 	def destroy_product_like
-		like = UserProduct.where(user_id: params[:myparam1], product_id: params[:myparam2]).all
-		like.destroy
+		like = UserProduct.where(["user_id = ? and product_id = ?", params[:myparam1], params[:myparam2]]).all
+		like.destroy_all
 		head :ok
 	end
 
