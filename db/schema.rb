@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719090640) do
+ActiveRecord::Schema.define(version: 20170727130508) do
 
   create_table "colors", force: :cascade do |t|
     t.string   "nombre"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20170719090640) do
     t.integer  "packaging_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "providers_ids"
     t.string   "image"
   end
 
@@ -97,6 +96,13 @@ ActiveRecord::Schema.define(version: 20170719090640) do
     t.boolean  "superadmin_role",        default: false
     t.boolean  "salesman_role",          default: false
     t.boolean  "user_role",              default: true
+    t.boolean  "guest",                  default: false
+    t.string   "password"
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.string   "password_hash"
+    t.string   "password_halt"
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

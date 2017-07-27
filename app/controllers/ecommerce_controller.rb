@@ -1,5 +1,5 @@
 class EcommerceController < ApplicationController
-skip_before_action :authenticate_user!, :only => [:index]
+
 before_action :set_like, only: [:show, :edit, :update, :destroy]
 	def index
 		@products = Product.paginate(page: params[:page], per_page: 9).order('created_at DESC')

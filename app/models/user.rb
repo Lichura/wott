@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  before_create { generate_token(:auth_token) }
+  	before_create { generate_token(:auth_token) }
 	has_secure_password
-
+	attr_reader :password_hash
    has_many :user_products
    has_many :products, through: :user_products
 
