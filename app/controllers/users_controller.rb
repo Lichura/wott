@@ -67,17 +67,16 @@ end
 
 
 
-  def create
-  	@user = User.new(user_params)
-
-
-  	if @user.save
-  		  session[:return_to] ||= request.referer
-        redirect_to session.delete(:return_to), :notice => "Se creo el cliente #{@user.email}"
-    else
-  		render :new 
-  	end
+def create
+  @user = params[:user] ? User.new(allowed_params) : User.new_guest
+  if @user.save
+    current_user.move_to(@user) if current_user && current_user.guest?
+    session[:user_id] = @user.id
+    redirect_to root_url
+  else
+    render :new
   end
+end
 
   def update
     respond_to do |format|

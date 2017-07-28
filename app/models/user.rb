@@ -2,11 +2,34 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   	before_create { generate_token(:auth_token) }
+
+
+  	validates_presence_of :email, :password_digest
+  validates_uniqueness_of :email
+	validates_confirmation_of :password
+
+
 	has_secure_password
 	attr_reader :password_hash
-   has_many :user_products
+   has_many :user_products, dependent: :destroy
    has_many :products, through: :user_products
 
+ def self.new_guest
+    new(email: "#{Time.now}@bogus.com", 
+        password_digest: 'bogus')
+  end
+
+  def name
+  guest ? "Guest" : username
+end
+
+def move_to(user)
+    user_products.update_all(user_id: user.id)
+  end
+
+  def guest?
+    email.include?('bogus.com')
+  end
 
 
 	def self.authenticate(email, password)

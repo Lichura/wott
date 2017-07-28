@@ -29,6 +29,7 @@
      
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <p><%= current_user.email %></p>
         <% if 1 == 2 %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item'  %>
         <% else %>
