@@ -10,6 +10,11 @@ before_action :set_like, only: [:show, :edit, :update, :destroy]
 		end
 	end
 
+
+	def liked
+		@products = Product.joins(:user_products).where('user_products.user_id': current_user.id).paginate(page: params[:page], per_page: 9).order('created_at DESC')
+	end
+
 	def product_like
 		@like = UserProduct.new(user_id: params[:myparam1], product_id: params[:myparam2])
 		@like.save

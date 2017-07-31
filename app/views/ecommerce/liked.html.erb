@@ -1,11 +1,11 @@
     <head> <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  </head>
-<div class="page-header">
-  <h1><%= t'Pillows' %></h1>
-</div>
-
-	<div id="my-products">
+<div id="my-products">
+	<% if @products %>
   		<%= render @products %>
-	</div>
+  	<% else %>
+  		<p><%= t'no_products' %></p>
+  	<% end %>
+</div>
 
 
 <div id="infinite-scrolling">
