@@ -1,22 +1,3 @@
-<div class="product-container">
-  <h3><%= product.name %></h3>
-<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jpg"/>
-
-
-<div class="product-interact">
-<% if product.user_products.where(user_id: current_user.id).any? %>
-<i class="product-like fa fa-heart" aria-hidden="true"></i>
-<% else %>
-<i class="product-like fa fa-heart-o" aria-hidden="true"></i>
-<% end %>
-<i class="producto-cart fa fa-cart-plus" aria-hidden="true"></i>
-<span class="product-price">$ <%= product.price %></span>
-</div>
-<span hidden="true" class="producto-id" value="<%= product.id %>"><%= product.id %></span>
-
-</div>
-
-<script>
 
 
 
@@ -69,4 +50,3 @@ function set_heart_color(elem){
         }
     });
 	}
-</script>

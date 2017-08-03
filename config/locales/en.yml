@@ -22,3 +22,7 @@
 en:
   hello: "Hello world"
   pillows: "Pillows"
+  saved: "Saved"
+  logout: "Logout"
+  login: "Login"
+  no_products: "You don't have any product here."
