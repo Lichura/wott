@@ -1,9 +1,11 @@
 
 <div id="my-products">
-	<% if @products %>
+	<% if @products.any? %>
   		<%= render @products %>
   	<% else %>
-  		<p><%= t'no_products' %></p>
+  	<br>
+  	<br>
+  		<h1><%= t'no_products' %></h1>
   	<% end %>
 </div>
 
@@ -17,6 +19,15 @@
 $(document).ready(function(){
 	$(".product-like").click(function(){
 		set_heart_color(this);
+		if($(this).is('.fa-heart-o')){
+			var elemento = $(this).parent().parent();
+			($(elemento).fadeOut(1000, function() { $(elemento).remove(); }));
+			console.log("prueba");
+		}
+		if($(".product-like").length < 2){
+			console.log("bla");
+			$('#my-products').html("<h1><%= t'no_products' %></h1>");
+		}
 	});
 });
 </script>

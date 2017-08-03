@@ -22,11 +22,8 @@
 
 function set_heart_color(elem){
 	var producto = $(elem).parent().parent().find('.producto-id').text();
-    console.log(producto);
-    console.log(<%= current_user.id %>);
 	if($(elem).is('.fa-heart-o')){
 		$(elem).removeClass('fa-heart-o').addClass('fa-heart');
-		
 		save_association_product_user(producto);
 	}else{
 		$(elem).removeClass('fa-heart').addClass('fa-heart-o');
