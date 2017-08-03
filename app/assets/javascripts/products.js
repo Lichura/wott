@@ -1,11 +1,4 @@
-$(document).ready(function(){
-	$(".product-like").click(function(){
-		set_heart_color(this);
-	});
 
-
-
-});
 
 
 function set_heart_color(elem){

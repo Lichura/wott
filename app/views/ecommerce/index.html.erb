@@ -1,4 +1,4 @@
-    <head> <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  </head>
+
 <div class="page-header">
   <h1><%= t'Pillows' %></h1>
 </div>
@@ -12,3 +12,10 @@
   <%= will_paginate @products %>
 </div>
 
+<script>
+$(document).ready(function(){
+    $(".product-like").click(function(){
+        set_heart_color(this);
+    });
+});
+</script>
