@@ -13,15 +13,18 @@ class User < ApplicationRecord
 	attr_reader :password_hash
    has_many :user_products, dependent: :destroy
    has_many :products, through: :user_products
+   has_many :user_cart_products, dependent: :destroy
+   has_many :products, through: :user_cart_products
 
  def self.new_guest
     new(email: "#{Time.now}@bogus.com", 
-        password_digest: 'bogus')
+        password_digest: 'bogus',
+        guest: true)
   end
 
   def name
   guest ? "Guest" : email
-end
+	end
 
 def move_to(user)
     user_products.update_all(user_id: user.id)

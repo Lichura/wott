@@ -1,0 +1,9 @@
+<div id="my-products">
+	<% if @products.any? %>
+  		<%= render @products %>
+  	<% else %>
+  	<br>
+  	<br>
+  		<h1><%= t'no_products' %></h1>
+  	<% end %>
+</div>

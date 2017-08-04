@@ -1,6 +1,6 @@
 <div class="product-container">
   <h3><%= product.name %></h3>
-<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jpg"/>
+<img class="producto-imagen" src="https://s-media-cache-ak0.pinimg.com/736x/05/fc/20/05fc20ea30330f152c88503210ca6bd1--ocean-waves-in-color.jp"/>
 
 
 <div class="product-interact">
@@ -15,7 +15,6 @@
 <span hidden="true" class="producto-id" value="<%= product.id %>"><%= product.id %></span>
 
 </div>
-
 <script>
 
 
@@ -29,6 +28,11 @@ function set_heart_color(elem){
 		$(elem).removeClass('fa-heart').addClass('fa-heart-o');
 		destroy_association_product_user(producto);
 	}
+}
+
+function add_to_cart(elem){
+    var producto = $(elem).parent().parent().find('.producto-id').text();
+    save_association_user_cart_product(producto);
 }
 
 
@@ -50,6 +54,23 @@ function set_heart_color(elem){
 	}
 
 
+    function save_association_user_cart_product(producto){
+     $.ajax({
+        url:'/ecommerce/product_cart',
+        type:'POST',
+        data:{
+            myparam1: <%= current_user.id %>,
+            myparam2: producto,
+        },
+        success:function(data){
+            console.log("success");
+        },
+        error:function(data){
+            debugger;
+        }
+    });
+    }
+
 	function destroy_association_product_user(producto){
 	 $.ajax({
         url:'/ecommerce/destroy_product_like',
@@ -66,4 +87,6 @@ function set_heart_color(elem){
         }
     });
 	}
+
+
 </script>
