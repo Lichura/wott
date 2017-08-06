@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170731103837) do
     t.integer  "packaging_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "providers_ids"
     t.string   "image"
   end
 
@@ -74,8 +75,9 @@ ActiveRecord::Schema.define(version: 20170731103837) do
   end
 
   create_table "user_cart_products", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "product_id"
+    t.string   "user_id"
+    t.string   "integer"
+    t.string   "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,7 +105,7 @@ ActiveRecord::Schema.define(version: 20170731103837) do
     t.boolean  "superadmin_role",        default: false
     t.boolean  "salesman_role",          default: false
     t.boolean  "user_role",              default: true
-    t.boolean  "guest",                  default: false
+    t.boolean  "guest"
     t.string   "password"
     t.string   "password_digest"
     t.string   "auth_token"

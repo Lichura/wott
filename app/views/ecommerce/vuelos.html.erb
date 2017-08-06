@@ -1,0 +1,20 @@
+<h3>Ryanair</h3>
+<% @vuelos['fares'].each do |vuelo| %>
+	<p>Desde <%= vuelo['outbound']['departureAirport']['name'] %></p>
+	<p>Hacia <%= vuelo['outbound']['arrivalAirport']['name'] %></p>
+	<p>Fecha Salida <%= vuelo['outbound']['departureDate'] %></p>
+	<p>Fecha Llegada <%= vuelo['outbound']['arrivalDate'] %></p>
+	<p style="color: red">Precio <%= vuelo['outbound']['price']['value'] %><%= vuelo['outbound']['price']['currencySymbol'] %></p>
+<% end %>
+
+
+
+
+<h3>Easyjet</h3>
+<% @easyjet['AvailableFlights'].each do |vuelo| %>
+	<p>Desde <%= vuelo['DepartureIata'] %></p>
+	<p>Hacia <%= vuelo['ArrivalIata'] %></p>
+	<p>Fecha Salida <%= vuelo['LocalDepartureTime'] %></p>
+	<p>Fecha Llegada <%= vuelo['LocalArrivalTime'] %></p>
+	<p style="color: red">Precio <%= vuelo['FlightFares'].first['Prices']['Adult']['PriceWithDebitCard'] %></p>
+<% end %>

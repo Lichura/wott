@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
 
+gem 'httparty'
+gem 'sidekiq'
+gem 'whenever'
+
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem "font-awesome-rails"
 source 'https://rails-assets.org' do

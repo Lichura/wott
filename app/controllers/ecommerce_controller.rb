@@ -10,6 +10,10 @@ before_action :set_like, only: [:show, :edit, :update, :destroy]
 		end
 	end
 
+	def vuelos
+		 @vuelos = Product.vuelos
+		 @easyjet = Product.easyjet
+	end
 
 	def cart
 		@products = Product.joins(:user_cart_products).where('user_cart_products.user_id': current_user.id).paginate(page: params[:page], per_page: 9).order('created_at DESC')

@@ -52,6 +52,21 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  #configuracion para que funcione devise. Si funciona habria que habilitarla en produccion
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+    config.action_mailer.default_url_options = {:host => "caravanastrenquelauquen.com.ar"}
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.raise_delivery_errors = true
+
+      config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.zoho.com",
+   :port                 => 587,
+   :user_name            => 'mail@caravanastrenquelauquen.com.ar',
+   :password             => ENV['MAILPASSWORD'],
+   :authentication       => :login,
+   :enable_starttls_auto => true
+    }
 end
