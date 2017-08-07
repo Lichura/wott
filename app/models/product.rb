@@ -59,10 +59,10 @@ accepts_nested_attributes_for :user_cart_products, allow_destroy: true
 	end
 
 	def self.british
-		default_params key: ''
-		base_uri 'https://api.ba.com/rest-v1/v1/flightOfferBasic'
+		opciones = {'client-key': "sy8tvxcv3rxbp4nhxwy9ppwy"}
+		base_uri 'https://api.ba.com/rest-v1/v1/flightOfferBasic;departureCity=LON;arrivalCity=NYC;cabin=economy;journeyType=roundTrip;range=monthLow'
 		format :json
-		get('/departureCity=LON;arrivalCity=BCN')
+		get(base_uri, :headers => opciones)
 	end
 
 	def set_initials
