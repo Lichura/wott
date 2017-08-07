@@ -13,6 +13,9 @@ before_action :set_like, only: [:show, :edit, :update, :destroy]
 	def vuelos
 		 @vuelos = Product.vuelos
 		 @easyjet = Product.easyjet
+		 @transavia = Product.transavia
+		 #@british = Product.british
+		 #@airfrance = Product.airfrance
 	end
 
 	def cart

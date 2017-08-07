@@ -18,3 +18,12 @@
 	<p>Fecha Llegada <%= vuelo['LocalArrivalTime'] %></p>
 	<p style="color: red">Precio <%= vuelo['FlightFares'].first['Prices']['Adult']['PriceWithDebitCard'] %></p>
 <% end %>
+
+
+<% @transavia['flightOffer'].each do |vuelo| %>
+	<p>Desde <%= vuelo['outboundFlight']['departureAirport']['locationCode'] %></p>
+	<p>Hacia <%= vuelo['outboundFlight']['arrivalAirport']['locationCode'] %></p>
+	<p>Fecha Salida <%= vuelo['outboundFlight']['departureDateTime']%></p>
+	<p>Fecha Llegada <%= vuelo['outboundFlight']['arrivalDateTime']%></p>
+	<p style="color: red">Precio <%= vuelo['pricingInfoSum']['totalPriceAllPassengers'] %></p>
+<% end %>
