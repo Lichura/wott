@@ -52,17 +52,17 @@ accepts_nested_attributes_for :user_cart_products, allow_destroy: true
 	end
 
 	def self.airfrance
-		default_params key: ''
-		base_uri 'https://api.klm.com/opendata/flightoffers'
+		opciones = {'client-key':  ''}
+		base_uri 'https://api.klm.com/opendata/flightoffers/lowest-fare-offers?d=1&dateInterval=2017-12-15%2F2017-12-15'
 		format :json
-		get('/lowest-fare-offers?d=1&dateInterval=2017-12-15%2F2017-12-15')
+		get(base_uri, :headers => opciones)
 	end
 
 	def self.british
-		opciones = {'client-key': "sy8tvxcv3rxbp4nhxwy9ppwy"}
-		base_uri 'https://api.ba.com/rest-v1/v1/flightOfferBasic;departureCity=LON;arrivalCity=NYC;cabin=economy;journeyType=roundTrip;range=monthLow'
-		format :json
-		get(base_uri, :headers => opciones)
+		opciones = {'client-key': ""}
+		base_uri 'https://test.api.ba.com/selling-distribution/FlightPrice/V2'
+		format :xml
+		post(base_uri, :headers => opciones)
 	end
 
 	def set_initials
