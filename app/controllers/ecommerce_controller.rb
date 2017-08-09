@@ -1,5 +1,5 @@
+require 'vuelos.rb'
 class EcommerceController < ApplicationController
-
 before_action :set_like, only: [:show, :edit, :update, :destroy]
 	def index
 		@products = Product.paginate(page: params[:page], per_page: 9).order('created_at DESC')
@@ -11,10 +11,12 @@ before_action :set_like, only: [:show, :edit, :update, :destroy]
 	end
 
 	def vuelos
+		 @prueba = Vuelo.ryanair('BVA', 'BCN', '2017-12-15')
+		 @prueba = Vuelo.first
 		 @vuelos = Product.vuelos
 		 @easyjet = Product.easyjet
 		 @transavia = Product.transavia
-		 @british = Product.british
+		 #@british = Product.british
 		 #@airfrance = Product.airfrance
 		 #UserMailer.mailer("lichun88@gmail.com", @vuelos).deliver!
 	end
