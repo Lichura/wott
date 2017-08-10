@@ -31,6 +31,9 @@ accepts_nested_attributes_for :user_cart_products, allow_destroy: true
 			response = HTTParty.get(base_uri)
 			response.parsed_response
 			#UserMailer.mailer("lichun88@gmail.com").deliver!
+			json = response.to_json
+			JSON.parse(json, object_class: OpenStruct)
+			
 	end
 
 	def self.easyjet
@@ -44,7 +47,7 @@ accepts_nested_attributes_for :user_cart_products, allow_destroy: true
 	end
 
 	def self.transavia
-		default_params key: ''
+		default_params key: '0a7cd4cd5660465897c865a8d3cd5c0a'
 		base_uri 'https://tst.api.transavia.com/v1/flightoffers'
 		format :json
 		get("/?Origin=ORY&Destination=BCN&OriginDepartureDate=201710")

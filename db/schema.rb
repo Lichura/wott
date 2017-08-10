@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731103837) do
+ActiveRecord::Schema.define(version: 20170810104742) do
 
   create_table "colors", force: :cascade do |t|
     t.string   "nombre"
@@ -20,11 +20,32 @@ ActiveRecord::Schema.define(version: 20170731103837) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "currencies", force: :cascade do |t|
+    t.string   "name"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "families", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "fixed_costs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "descripcion"
+    t.float    "amount"
+    t.datetime "valid_from"
+    t.datetime "valid_until"
+    t.string   "payment_code"
+    t.string   "supplier"
+    t.string   "service_code"
+    t.integer  "currency_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "product_colors", force: :cascade do |t|
@@ -73,6 +94,25 @@ ActiveRecord::Schema.define(version: 20170731103837) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "user_adresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "street"
+    t.string   "second_street"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "cellphone"
+    t.string   "floor"
+    t.string   "stairs"
+    t.string   "door"
+    t.string   "building"
+    t.string   "other"
+    t.string   "country"
+    t.string   "province"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "user_cart_products", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -98,12 +138,12 @@ ActiveRecord::Schema.define(version: 20170731103837) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "guest",                  default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "superadmin_role",        default: false
     t.boolean  "salesman_role",          default: false
     t.boolean  "user_role",              default: true
+    t.boolean  "guest",                  default: false
     t.string   "password"
     t.string   "password_digest"
     t.string   "auth_token"
