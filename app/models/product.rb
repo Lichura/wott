@@ -59,7 +59,7 @@ accepts_nested_attributes_for :user_cart_products, allow_destroy: true
 	end
 
 	def self.british
-		opciones = {'client-key': ""}
+		opciones = {'client-key': "tz83mmcha7kdxy3nwdx38xa7", 'SOAPAction': 'FlightPrice', 'Content-Type': 'text/xml'}
 		base_uri 'https://test.api.ba.com/selling-distribution/FlightPrice/V2'
 		format :xml
 		post(base_uri, :headers => opciones)
