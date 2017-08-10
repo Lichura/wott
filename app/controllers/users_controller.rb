@@ -16,6 +16,10 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+    render "users/profile/index"
+  end
+
 def buscar
     @user = User
     if params[:search]

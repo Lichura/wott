@@ -26,3 +26,7 @@ en:
   logout: "Logout"
   login: "Login"
   no_products: "You don't have any product here."
+  user_profile_settings_titulo: "SETTINGS"
+  user_profile_settings_descripcion: "Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute aliquando ius ex. Ea aperiri sententiae duo."
+  user_profile_orders_titulo: "ORDERS"
+  user_profile_orders_descripcion: "There goes your orders, a place where you can see your beautiful shops"

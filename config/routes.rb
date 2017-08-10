@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "liked" => "ecommerce#liked"
   get "cart" => "ecommerce#cart"
   get "vuelos" => "ecommerce#vuelos"
+  get "profile" => "users#profile"
 
 get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
