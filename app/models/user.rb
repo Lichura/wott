@@ -12,6 +12,8 @@ class User < ApplicationRecord
 	has_secure_password
 	attr_reader :password_hash
    has_many :user_products, dependent: :destroy
+   has_many :user_adresses, :inverse_of => :user
+   accepts_nested_attributes_for :user_adresses, allow_destroy: true
    has_many :products, through: :user_products
    has_many :user_cart_products, dependent: :destroy
    has_many :products, through: :user_cart_products

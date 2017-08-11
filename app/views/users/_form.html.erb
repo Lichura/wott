@@ -11,100 +11,54 @@
     </div>
   <% end %>
 
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
 
   <div class="form-group">
-    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <%= f.label :name, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :email, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <% @profiles.each do |perfil| %>
-    <%= f.radio_button :profile_id, perfil.id %>
-    <%= f.label :profile_id, perfil.nombre %>
-    <%= f.select(:profile_id, Profile.find(:all).collect {|u| [u.nombre, u.id]}, :prompt => 'Seleccione el tipo de usuario') %>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :razonSocial, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :razonSocial, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :direccion, class: "col-sm-2 control-label" %>
+    <%= f.label :lastname, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :direccion, class: "form-control" %>
+      <%= f.text_field :lastname, class: "form-control" %>
     </div>
   </div>
-
-  <div class="field">
-    <%= f.label :localidad_id %><br>
-    <%= f.text_field :localidad_id %>
-  </div>
-
-
   <div class="form-group">
-    <%= f.label :cuig, class: "col-sm-2 control-label" %>
+    <%= f.label :dni, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :cuig, class: "form-control" %>
-    </div>
-
-      <div class="form-group">
-    <%= f.label :renspa, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :renspa, class: "form-control" %>
+      <%= f.text_field :dni, class: "form-control" %>
     </div>
   </div>
-    
-  <div class="form-group">
-    <%= f.label :cuit, class: "col-sm-2 control-label" %>
+    <div class="form-group">
+    <%= f.label :birth, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :cuit, class: "form-control" %>
+      <%= f.date_field :birth, class: "form-control" %>
     </div>
   </div>
 
-      <div class="form-group">
-    <%= f.label :telefono, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :telefono, class: "form-control" %>
-    </div>
-  </div>
-    
-  
-      <div class="form-group">
-    <%= f.label :codigoPostal, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :codigoPostal, class: "form-control" %>
-    </div>
-  </div>
- 
-    <div class="field">
-    <%= f.label :provincia_id %><br>
-    <%= f.text_field :provincia_id %>
-    <p><%= Provincia.find_by(id: @user.provincia_id).nombre %></p>
-  </div>
-    <div class="field">
-    <%= f.label :pais_id %><br>
-    <%= f.text_field :pais_id %>
-  </div>
-    <div class="field">
-    <%= f.label :encargado %><br>
-    <%= f.text_field :encargado %>
-  </div>
-    <div class="field">
-    <%= f.label :celular %><br>
-    <%= f.text_field :celular %>
-  </div>
-    <div class="field">
-    <%= f.label :numeroCv %><br>
-    <%= f.text_field :numeroCv %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<h3>addresses</h3>
+            <%= f.fields_for :user_adresses do |address| %>
+              <%= render 'user_adress_fields', f: address %>
+            <% end %>
+            <%= link_to_add_fields (t"add_address_to_user"), f, :user_adresses,  :class => "btn btn-success pull-right" %>
+
+
+
+<%= f.submit 'Crear Usuario', :class => "btn btn-primary pull-right" %>
+
 <% end %>

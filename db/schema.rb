@@ -138,12 +138,12 @@ ActiveRecord::Schema.define(version: 20170810130431) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "guest",                  default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "superadmin_role",        default: false
     t.boolean  "salesman_role",          default: false
     t.boolean  "user_role",              default: true
+    t.boolean  "guest",                  default: false
     t.string   "password"
     t.string   "password_digest"
     t.string   "auth_token"

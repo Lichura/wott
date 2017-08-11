@@ -1,6 +1,24 @@
 
+<div class="container-profile">
+	<ul class="nav nav-pills">
+	  <li class="active">
+	    <a data-toggle="tab" href="#settings"><i class="fa fa-cog" aria-hidden="true"></i> <%= t"user_profile_settings_titulo" %></a>
+	  </li>
+	  <li>
+	    <a data-toggle="tab" href="#orders"><i class="fa fa-cart-arrow-down" aria-hidden="true">  </i><%= t"user_profile_orders_titulo" %></a>
+	  </li>
+	</ul>
+	<div class="tab-content clearfix">
+	      <div class="tab-pane active" id="settings">
+	      		<%= t"user_profile_settings_descripcion" %>
+	     </div>
+	     <div class="tab-pane" id="orders">
+	      		<%= t"user_profile_orders_descripcion" %>
+	     </div>
+	</div>
+</div>
 
-<div id="user-profile">
+<!-- <div id="user-profile">
 	<div class="user-profile-container">
 		<div class="user-profile-container-color">
 		<%= image_tag "settings.jpg" %>
@@ -25,4 +43,4 @@
 
 		</div>
 	</div>
-</div>
+</div> -->

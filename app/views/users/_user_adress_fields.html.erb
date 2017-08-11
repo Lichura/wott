@@ -1,0 +1,29 @@
+<fieldset>
+	<h2>Establecimiento: </h2>
+                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-6">
+                      <%= f.text_field :country, placeholder: "Nombre", class: "form-control" %>
+                    </div>
+                </div>
+                street
+                second_street
+                floor
+                stairs
+                door
+                building
+                other
+                zip
+                country
+                province
+                city
+                phone
+                cellphone
+                    <div class="col-sm-4">
+                      <%= f.hidden_field :_destroy %>
+                      <%= link_to (t"delete_user_address"), '#', class: "remove_fields btn btn-danger pull-right" %>
+                    </div>
+                </div>
+</fieldset>
+
+
